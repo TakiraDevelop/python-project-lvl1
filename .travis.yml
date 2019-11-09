@@ -9,3 +9,6 @@ before_install:
 install:
         - make configure
 
+script:
+        - make lint
+
