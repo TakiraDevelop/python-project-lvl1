@@ -3,5 +3,5 @@ all: install
 configure:
 	@poetry install
 
-lint:
+make:
 	@poetry run flake8
