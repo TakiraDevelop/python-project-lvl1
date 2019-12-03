@@ -35,6 +35,15 @@ def correct_answer(question, game):
             return question[0] - question[2]
         if exp == '*':
             return question[0] * question[2]
+    if game == 'gcd':
+        a = question[0]
+        b = question[1]
+        while a != b:
+            if a > b:
+                a = a - b
+            else:
+                b = b - a
+        return a
 
 
 def question(name,game):
@@ -44,6 +53,8 @@ def question(name,game):
             question = rnumber()
         elif game == 'calc':
             question = calc()
+        elif game == 'gcd':
+            question = gcd()
         print('Question: ' + str(question))
         answer = user_answer()
         if int(correct_answer(question, game)) == int(answer):
@@ -60,3 +71,9 @@ def calc():
     second_number = rnumber()
     exp = expression()
     return first_number,exp,second_number
+
+def gcd():
+    first_number = rnumber()
+    second_number = rnumber()
+    return first_number,second_number
+    

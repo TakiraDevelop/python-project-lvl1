@@ -3,3 +3,4 @@
 [![Travis](https://travis-ci.org/TakiraDevelop/python-project-lvl1.svg?branch=master)
 [![asciicast](https://asciinema.org/a/AcSPokDPH0KuLhsCcV4TKebjn.svg)](https://asciinema.org/a/AcSPokDPH0KuLhsCcV4TKebjn)
 [![asciicast](https://asciinema.org/a/SwWiTR7cMcobJCV5XL8D62Imp.svg)](https://asciinema.org/a/SwWiTR7cMcobJCV5XL8D62Imp)
+[![asciicast](https://asciinema.org/a/thWBMj5Sim629X6lNhzfEaejg.svg)](https://asciinema.org/a/thWBMj5Sim629X6lNhzfEaejg)
