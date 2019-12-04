@@ -27,7 +27,7 @@ def correct_answer(question, game):
             return 'yes'
         elif question % 2 != 0:
             return 'no'
-    if game == 'calc':
+    elif game == 'calc':
         exp = question[1]
         if exp == '+':
             return int(question[0] + question[2])
@@ -35,7 +35,7 @@ def correct_answer(question, game):
             return int(question[0] - question[2])
         if exp == '*':
             return int(question[0] * question[2])
-    if game == 'gcd':
+    elif game == 'gcd':
         a = question[0]
         b = question[1]
         while a != b:
@@ -44,13 +44,21 @@ def correct_answer(question, game):
             else:
                 b = b - a
         return a
-    if game == 'progression':
+    elif game == 'progression':
         index_fnumber = question.index('..')
         if index_fnumber >= 2:
             fnumber = question[index_fnumber - 1] - question[index_fnumber - 2] + question[index_fnumber - 1]
         else:
             fnumber = question[index_fnumber + 1] - (question[index_fnumber + 2] - question[index_fnumber + 1])
         return fnumber
+    elif game == 'prime':
+        prime_number = 2
+        while question[0] % prime_number != 0:
+            prime_number += 1
+        if prime_number == question[0]:
+            return 'yes'
+        else:
+            return 'no'
 
 
 def question(name,game):
@@ -64,15 +72,26 @@ def question(name,game):
             question = gcd()
         elif game == 'progression':
             question = progression()
+        elif game == 'prime':
+            question = prime()
         print('Question: ' + ' '.join([str (i) for i in question]))
         answer = user_answer()
-        if int(correct_answer(question, game)) == int(answer):
-            print('Correct!')
-            m += 1
-        else:
-            print(f"""'{answer}' is wrong answer ;(. Correct answer was '{correct_answer(question, game)}' 
+        if game == 'even' or game == 'prime':
+            if correct_answer(question, game) == answer:
+                print('Correct!')
+                m += 1
+            else:
+                print(f"""'{answer}' is wrong answer ;(. Correct answer was '{correct_answer(question, game)}' 
 Let`s try again, {name}!""")
-            break
+                break
+        else:
+            if int(correct_answer(question, game)) == int(answer):
+                print('Correct!')
+                m += 1
+            else:
+                print(f"""'{answer}' is wrong answer ;(. Correct answer was '{correct_answer(question, game)}' 
+Let`s try again, {name}!""")
+                break
 
 
 def calc():
@@ -81,6 +100,11 @@ def calc():
     exp = expression()
     list_calc = [first_number, exp, second_number]
     return list_calc
+
+
+def prime():
+    number = [rnumber()]
+    return number
 
 
 def gcd():
@@ -95,3 +119,4 @@ def progression():
     progression = progression[0:10]
     progression[randint(0, 9)] = '..'
     return progression
+
