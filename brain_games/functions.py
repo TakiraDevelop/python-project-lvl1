@@ -30,11 +30,11 @@ def correct_answer(question, game):
     if game == 'calc':
         exp = question[1]
         if exp == '+':
-            return question[0] + question[2]
+            return int(question[0] + question[2])
         if exp == '-':
-            return question[0] - question[2]
+            return int(question[0] - question[2])
         if exp == '*':
-            return question[0] * question[2]
+            return int(question[0] * question[2])
     if game == 'gcd':
         a = question[0]
         b = question[1]
@@ -44,6 +44,13 @@ def correct_answer(question, game):
             else:
                 b = b - a
         return a
+    if game == 'progression':
+        index_fnumber = question.index('..')
+        if index_fnumber >= 2:
+            fnumber = question[index_fnumber - 1] - question[index_fnumber - 2] + question[index_fnumber - 1]
+        else:
+            fnumber = question[index_fnumber + 1] - (question[index_fnumber + 2] - question[index_fnumber + 1])
+        return fnumber
 
 
 def question(name,game):
@@ -55,7 +62,9 @@ def question(name,game):
             question = calc()
         elif game == 'gcd':
             question = gcd()
-        print('Question: ' + str(question))
+        elif game == 'progression':
+            question = progression()
+        print('Question: ' + ' '.join([str (i) for i in question]))
         answer = user_answer()
         if int(correct_answer(question, game)) == int(answer):
             print('Correct!')
@@ -70,10 +79,19 @@ def calc():
     first_number = rnumber()
     second_number = rnumber()
     exp = expression()
-    return first_number,exp,second_number
+    list_calc = [first_number, exp, second_number]
+    return list_calc
+
 
 def gcd():
     first_number = rnumber()
     second_number = rnumber()
     return first_number,second_number
-    
+
+
+def progression():
+    rstep = randint(1, 10)
+    progression = list(range(0,100,rstep))
+    progression = progression[0:10]
+    progression[randint(0, 9)] = '..'
+    return progression
