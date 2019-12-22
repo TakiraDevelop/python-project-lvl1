@@ -25,7 +25,7 @@ def correct_answer(question, game):
     if game == 'even':
         if question % 2 == 0:
             return 'yes'
-        elif question % 2 != 0:
+        else:
             return 'no'
     elif game == 'calc':
         exp = question[1]
