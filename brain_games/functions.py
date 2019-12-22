@@ -47,9 +47,11 @@ def correct_answer(question, game):
     elif game == 'progression':
         findex = question.index('..')
         if findex >= 2:
-            fnumber = question[findex - 1] - question[findex - 2] + question[findex - 1]
+            fnumber = question[findex - 1] - question[findex - 2]
+            fnumber = fnumber + question[findex - 1]
         else:
-            fnumber = question[findex + 1] - (question[findex + 2] - question[findex + 1])
+            fnumber = question[findex + 2] - question[findex + 1]
+            fnumber = question[findex + 1] - fnumber
         return fnumber
     elif game == 'prime':
         prime_number = 2
@@ -81,7 +83,7 @@ def question(name, game):
                 print('Correct!')
                 m += 1
             else:
-                print(f"""'{answer}' is wrong answer ;(. Correct answer was '{correct_answer(question, game)}' 
+                print(f"""'{answer}' is wrong answer ;(. Correct answer was""" + f"""'{correct_answer(question, game)}'
 Let`s try again, {name}!""")
                 break
         else:
@@ -89,7 +91,7 @@ Let`s try again, {name}!""")
                 print('Correct!')
                 m += 1
             else:
-                print(f"""'{answer}' is wrong answer ;(. Correct answer was '{correct_answer(question, game)}' 
+                print(f"""'{answer}' is wrong answer ;(. Correct answer was""" + f"""'{correct_answer(question, game)}' 
 Let`s try again, {name}!""")
                 break
 
