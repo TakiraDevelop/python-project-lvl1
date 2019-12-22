@@ -1,14 +1,5 @@
-from brain_games.functions import welcome, run, question
-from brain_games.cli import user_name
-
-
-def main():
-    welcome()
-    print('What number is missing in the progression?')
-    name = user_name()
-    run(name)
-    question(name, 'progression')
+from brain_games.cli import package_game
 
 
 if __name__ == '__main__':
-    main()
+    package_game('progression')

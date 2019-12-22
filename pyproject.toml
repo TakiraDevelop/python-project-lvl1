@@ -1,11 +1,14 @@
 [tool.poetry]
 name = "TakiraDevelop_brain_games"
 version = "0.1.7"
-description = ""
+description = "First project on hexlet"
 authors = ["Viktoriya <uvp11@mail.ru>"]
 repository = "https://github.com/TakiraDevelop/python-project-lvl1"
 packages = [
 	{include = "brain_games"},
+]
+classifiers = [
+        "Topic :: Education"
 ]
 
 [tool.poetry.dependencies]
@@ -16,7 +19,7 @@ prompt = "^0.4.1"
 flake8 = "^3.7"
 
 [tool.poetry.scripts]
-brain-even = "brain_games.scripts.games.brain_even:main"
+brain-even = "brain_games.scripts.brain_even:main"
 brain-games = "brain_games.scripts.brain_games:main"
 brain-calc = "brain_games.scripts.brain_calc:main"
 brain-gcd = "brain_games.scripts.brain_gcd:main"
