@@ -94,7 +94,7 @@ def question(name, game):
                 print('Correct!')
                 m += 1
             else:
-            print(f"""'{answer}' is wrong answer ;(. Correct answer was""" + f"""'{correct_answer(question, game)}'
+                print(f"""'{answer}' is wrong answer ;(. Correct answer was""" + f"""'{correct_answer(question, game)}'
 Let`s try again, {name}!""")
                 break
         else:
