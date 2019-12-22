@@ -1,6 +1,6 @@
 all: install
 
-configure:
+install:
 	@poetry install
 
 lint:
