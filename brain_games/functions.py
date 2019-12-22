@@ -23,10 +23,7 @@ def run(name):
 
 def correct_answer(question, game):
     if game == 'even':
-        if question % 2 == 0:
-            return 'yes'
-        else:
-            return 'no'
+        even_answer(question)
     elif game == 'calc':
         exp = question[1]
         if exp == '+':
@@ -61,6 +58,13 @@ def correct_answer(question, game):
             return 'yes'
         else:
             return 'no'
+
+
+def even_answer(question):
+    if question % 2 == 0:
+        return 'yes'
+    else:
+        return 'no'
 
 
 def question(name, game):
