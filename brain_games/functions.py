@@ -85,26 +85,17 @@ def even_answer(question):
 def question(name, game):
     m = 0
     while m < 3:
-        if game == 'even':
-            question = rnumber()
-        elif game == 'calc':
-            question = calc()
-        elif game == 'gcd':
-            question = gcd()
-        elif game == 'progression':
-            question = progression()
-        elif game == 'prime':
-            question = prime()
+        question = what_question(game)
         print('Question: ' + ' '.join([str(i) for i in question]))
         answer = user_answer()
         if game == 'even' or game == 'prime':
             if correct_answer(question, game) == answer:
                 print('Correct!')
                 m += 1
-            else:
-                print(f"""'{answer}' is wrong answer ;(. Correct answer was""" + f"""'{correct_answer(question, game)}'
+        else:
+            print(f"""'{answer}' is wrong answer ;(. Correct answer was""" + f"""'{correct_answer(question, game)}'
 Let`s try again, {name}!""")
-                break
+            break
         else:
             if int(correct_answer(question, game)) == int(answer):
                 print('Correct!')
@@ -113,6 +104,20 @@ Let`s try again, {name}!""")
                 print(f"""'{answer}' is wrong answer ;(. Correct answer was""" + f"""'{correct_answer(question, game)}'
 Let`s try again, {name}!""")
                 break
+
+
+def what_question(game):
+    if game == 'even':
+        question = rnumber()
+    elif game == 'calc':
+        question = calc()
+    elif game == 'gcd':
+        question = gcd()
+    elif game == 'progression':
+        question = progression()
+    elif game == 'prime':
+        question = prime()
+    return question
 
 
 def calc():
