@@ -31,7 +31,8 @@ def correct_answer(question, game):
     elif game == 'progression':
         progression_answer(question)
     elif game == 'prime':
-        prime_answer(question) 
+        prime_answer(question)
+
 
 def prime_answer(question):
     prime_number = 2
@@ -92,10 +93,10 @@ def question(name, game):
             if correct_answer(question, game) == answer:
                 print('Correct!')
                 m += 1
-        else:
+            else:
             print(f"""'{answer}' is wrong answer ;(. Correct answer was""" + f"""'{correct_answer(question, game)}'
 Let`s try again, {name}!""")
-            break
+                break
         else:
             if int(correct_answer(question, game)) == int(answer):
                 print('Correct!')
