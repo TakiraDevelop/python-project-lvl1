@@ -25,39 +25,54 @@ def correct_answer(question, game):
     if game == 'even':
         even_answer(question)
     elif game == 'calc':
-        exp = question[1]
-        if exp == '+':
-            return int(question[0] + question[2])
-        if exp == '-':
-            return int(question[0] - question[2])
-        if exp == '*':
-            return int(question[0] * question[2])
+        calc_answer(question)
     elif game == 'gcd':
-        a = question[0]
-        b = question[1]
-        while a != b:
-            if a > b:
-                a = a - b
-            else:
-                b = b - a
-        return a
+        gcd_answer(question)
     elif game == 'progression':
-        findex = question.index('..')
-        if findex >= 2:
-            fnumber = question[findex - 1] - question[findex - 2]
-            fnumber = fnumber + question[findex - 1]
-        else:
-            fnumber = question[findex + 2] - question[findex + 1]
-            fnumber = question[findex + 1] - fnumber
-        return fnumber
+        progression_answer(question)
     elif game == 'prime':
-        prime_number = 2
-        while question[0] % prime_number != 0:
-            prime_number += 1
+        prime_answer(question) 
+
+def prime_answer(question):
+    prime_number = 2
+    while question[0] % prime_number != 0:
+        prime_number += 1
         if prime_number == question[0]:
             return 'yes'
         else:
             return 'no'
+
+
+def gcd_answer(question):
+    a = question[0]
+    b = question[1]
+    while a != b:
+        if a > b:
+            a = a - b
+        else:
+            b = b - a
+        return a
+
+
+def calc_answer(question):
+    exp = question[1]
+    if exp == '+':
+        return int(question[0] + question[2])
+    if exp == '-':
+        return int(question[0] - question[2])
+    if exp == '*':
+        return int(question[0] * question[2])
+
+
+def progression_answer(question):
+    findex = question.index('..')
+    if findex >= 2:
+        fnumber = question[findex - 1] - question[findex - 2]
+        fnumber = fnumber + question[findex - 1]
+    else:
+        fnumber = question[findex + 2] - question[findex + 1]
+        fnumber = question[findex + 1] - fnumber
+    return fnumber
 
 
 def even_answer(question):
