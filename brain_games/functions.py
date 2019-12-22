@@ -1,6 +1,6 @@
 from random import randint, choice
 
-from brain_games.cli import user_name, user_answer
+from brain_games.cli import user_answer
 
 
 def rnumber():
@@ -45,11 +45,11 @@ def correct_answer(question, game):
                 b = b - a
         return a
     elif game == 'progression':
-        index_fnumber = question.index('..')
-        if index_fnumber >= 2:
-            fnumber = question[index_fnumber - 1] - question[index_fnumber - 2] + question[index_fnumber - 1]
+        findex = question.index('..')
+        if findex >= 2:
+            fnumber = question[findex - 1] - question[findex - 2] + question[findex - 1]
         else:
-            fnumber = question[index_fnumber + 1] - (question[index_fnumber + 2] - question[index_fnumber + 1])
+            fnumber = question[findex + 1] - (question[findex + 2] - question[findex + 1])
         return fnumber
     elif game == 'prime':
         prime_number = 2
@@ -61,7 +61,7 @@ def correct_answer(question, game):
             return 'no'
 
 
-def question(name,game):
+def question(name, game):
     m = 0
     while m < 3:
         if game == 'even':
@@ -74,7 +74,7 @@ def question(name,game):
             question = progression()
         elif game == 'prime':
             question = prime()
-        print('Question: ' + ' '.join([str (i) for i in question]))
+        print('Question: ' + ' '.join([str(i) for i in question]))
         answer = user_answer()
         if game == 'even' or game == 'prime':
             if correct_answer(question, game) == answer:
@@ -110,13 +110,12 @@ def prime():
 def gcd():
     first_number = rnumber()
     second_number = rnumber()
-    return first_number,second_number
+    return first_number, second_number
 
 
 def progression():
     rstep = randint(1, 10)
-    progression = list(range(0,100,rstep))
+    progression = list(range(0, 100, rstep))
     progression = progression[0:10]
     progression[randint(0, 9)] = '..'
     return progression
-
