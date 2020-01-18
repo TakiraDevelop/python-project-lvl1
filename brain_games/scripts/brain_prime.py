@@ -1,5 +1,10 @@
-from brain_games.cli import package_game
+from brain_games.functions import run
+from brain_games.games import brain_prime
+
+
+def main():
+    run(brain_prime)
 
 
 if __name__ == '__main__':
-    package_game('prime')
+    main()
