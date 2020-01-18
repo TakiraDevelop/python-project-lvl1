@@ -18,4 +18,3 @@ def what_question():
     question = f'Question: {number}'
     answer = 'yes' if is_prime(number) else 'no'
     return (question, answer)
-

@@ -13,7 +13,7 @@ def progression():
 
 
 def what_question():
-    prog = progression()
+    prog == progression()
     fnumber = choice(prog)
     progression = ' '.join([
         '..' if num == fnumber else str(num) for num in prog
