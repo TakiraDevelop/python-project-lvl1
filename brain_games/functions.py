@@ -1,6 +1,6 @@
 from random import randint
 
-from brain_games.cli import user_answer, user_name
+from brain_games.cli import user_name
 
 ROUNDS = 3
 
@@ -21,10 +21,10 @@ def is_answer_correct(answer, correct_answer):
         message = 'Correct!'
         return (message)
     message = "'{wrong}' is wrong answer ;(. Correct answer was '{correct}'."
-    return (message.format(wrong = answer, correct = correct_answer))
+    return (message.format(wrong=answer, correct=correct_answer))
 
 
-def run(game = None):
+def run(game=None):
     print('Welcome to the Brain Games!')
     if game:
         print(game.WHAT_TO_DO)
