@@ -13,10 +13,10 @@ def progression():
 
 
 def what_question():
-    prog == progression()
+    prog = progression()
     fnumber = choice(prog)
-    progression = ' '.join([
+    progres = ' '.join([
         '..' if num == fnumber else str(num) for num in prog
     ])
-    question = f'Question: {progression}'
+    question = f'Question: {progres}'
     return (question, str(fnumber))
