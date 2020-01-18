@@ -35,7 +35,7 @@ def run(game = None):
         functionality(name, game.what_question)
 
 
-def functionality(name, play)
+def functionality(name, play):
     correct_answer = 0
     while correct_answer < ROUNDS:
         question, correct_answer = play()
