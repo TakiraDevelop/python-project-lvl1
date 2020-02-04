@@ -37,7 +37,7 @@ def functionality(name, play):
         if answer == correct_answer:
             print('Correct!')
         else:
-            print(f"""'{answer}' is wrong answer ;(. Correct answer was '{correct_answer}'. 
+            print(f"""'{answer}' is wrong answer ;(. Correct answer was '{correct_answer}'.
             \tLet\'s try again, '{name}'!""")
         how_much_correct_answer += 1
     print(f'Congratulations, {name}!')

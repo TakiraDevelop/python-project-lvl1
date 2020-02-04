@@ -11,4 +11,3 @@ def what_question():
     else:
         answer = 'yes'
     return (question, answer)
-    
