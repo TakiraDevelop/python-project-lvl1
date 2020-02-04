@@ -1,27 +1,20 @@
 from random import randint
 
-from brain_games.cli import user_name
+from brain_games.cli import user_answer, ask_username
 
 ROUNDS = 3
 
 
-def rnumber():
+def random_number():
     number = randint(1, 100)
     return number
 
 
 def welcome():
-    name = user_name()
+    name = ask_username()
     welcome = f'Hello, {name}!'
+    return name
     print(welcome)
-
-
-def is_answer_correct(answer, correct_answer):
-    if answer == correct_answer:
-        message = 'Correct!'
-        return (message)
-    message = "'{wrong}' is wrong answer ;(. Correct answer was '{correct}'."
-    return (message.format(wrong=answer, correct=correct_answer))
 
 
 def run(game=None):
@@ -36,14 +29,14 @@ def run(game=None):
 
 
 def functionality(name, play):
-    correct_answer = 0
-    while correct_answer < ROUNDS:
+    how_much_correct_answer = 0
+    while how_much_correct_answer < ROUNDS:
         question, correct_answer = play()
         print(question)
-        res, msg = is_answer_correct(user_name(), correct_answer)
-        print(msg)
-        if not res:
-            print(f'Let\'s try again, {name}!')
-            return
-        correct_answer += 1
+        answer = user_answer()
+        if answer == correct_answer:
+            print('Correct!')
+        else:
+            print(f"'{answer}' is wrong answer ;(. Correct answer was '{correct_answer}'. \nLet\'s try again, '{name}'!")
+        how_much_correct_answer += 1
     print(f'Congratulations, {name}!')

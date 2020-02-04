@@ -1,14 +1,13 @@
-from brain_games.functions import rnumber
+from brain_games.functions import random_number
 
 WHAT_TO_DO = 'Answer "yes" if number even otherwise answer "no".'
 
 
 def what_question():
-    number = rnumber()
+    number = random_number()
     question = f'Question: {number}'
-    answer = correct_answer(number)
+    if number % 2:
+        answer = 'no'
+    else:
+        answer = 'yes'
     return (question, answer)
-
-
-def correct_answer(number):
-    return 'no' if number % 2 else 'yes'

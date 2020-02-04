@@ -1,11 +1,11 @@
-from brain_games.functions import rnumber
+from brain_games.functions import random_number
 
 WHAT_TO_DO = 'Find the greatest common divisor of given numbers.'
 
 
 def what_question():
-    num1 = rnumber()
-    num2 = rnumber()
+    num1 = random_number()
+    num2 = random_number()
     question = f'Question: {num1} {num2}'
     answer = gcd(num1, num2)
     return (question, str(answer))

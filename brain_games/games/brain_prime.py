@@ -1,4 +1,4 @@
-from brain_games.functions import rnumber
+from brain_games.functions import random_number
 
 WHAT_TO_DO = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
@@ -14,7 +14,7 @@ def is_prime(number):
 
 
 def what_question():
-    number = rnumber()
+    number = random_number()
     question = f'Question: {number}'
     answer = 'yes' if is_prime(number) else 'no'
     return (question, answer)
