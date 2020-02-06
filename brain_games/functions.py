@@ -39,8 +39,8 @@ def game_runner(name, play):
             print('Correct!')
             how_much_correct_answers += 1
         else:
-            print(f"'{answer}' is wrong answer ;(.", 
-                  f"Correct answer was '{correct_answer}'.", 
+            print(f"'{answer}' is wrong answer ;(.",
+                  f"Correct answer was '{correct_answer}'.",
                   f"\nLet\'s try again, '{name}'!")
         how_much_rounds += 1
     if how_much_correct_answers == 3:
