@@ -15,7 +15,7 @@ def welcome():
     welcome = f'Hello, {name}!'
     print(welcome)
     return name
-    
+
 
 def run(game=None):
     print('Welcome to the Brain Games!')
@@ -39,7 +39,8 @@ def game_runner(name, play):
             print('Correct!')
             how_much_correct_answers += 1
         else:
-            print(f"'{answer}' is wrong answer ;(. Correct answer was '{correct_answer}'.",f"\nLet\'s try again, '{name}'!")
+            print(f"'{answer}' is wrong answer ;(. Correct answer was '{correct_answer}'.",
+            f"\nLet\'s try again, '{name}'!")
         how_much_rounds += 1
     if how_much_correct_answers == 3:
         print(f'Congratulations, {name}!')
