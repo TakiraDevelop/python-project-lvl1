@@ -13,9 +13,9 @@ def random_number():
 def welcome():
     name = ask_username()
     welcome = f'Hello, {name}!'
-    return name
     print(welcome)
-
+    return name
+    
 
 def run(game=None):
     print('Welcome to the Brain Games!')
@@ -25,19 +25,21 @@ def run(game=None):
     name = welcome()
     if game:
         print()
-        functionality(name, game.what_question)
+        game_runner(name, game.what_question)
 
 
-def functionality(name, play):
-    how_much_correct_answer = 0
-    while how_much_correct_answer < ROUNDS:
+def game_runner(name, play):
+    how_much_rounds = 0
+    how_much_correct_answers = 0
+    while how_much_rounds < ROUNDS:
         question, correct_answer = play()
         print(question)
         answer = user_answer()
         if answer == correct_answer:
             print('Correct!')
+            how_much_correct_answers += 1
         else:
-            print(f"""'{answer}' is wrong answer ;(. Correct answer was '{correct_answer}'.
-            \tLet\'s try again, '{name}'!""")
-        how_much_correct_answer += 1
-    print(f'Congratulations, {name}!')
+            print(f"'{answer}' is wrong answer ;(. Correct answer was '{correct_answer}'.",f"\nLet\'s try again, '{name}'!")
+        how_much_rounds += 1
+    if how_much_correct_answers == 3:
+        print(f'Congratulations, {name}!')
